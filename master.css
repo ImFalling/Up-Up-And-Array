@@ -40,6 +40,26 @@ h4{
   transform: translateX(-50%) translateY(-50%);
 }
 
+h5{
+  text-align: center;
+  font-family: arial;
+  font-size: 13px;
+  line-height: 125%;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+textarea{
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
 br{
   padding-top: 2px;
   padding-bottom: 2px;
@@ -63,7 +83,7 @@ br{
 }
 
 .tile:hover{
-  border: 2px solid white;
+  border: 2px solid red !important;
   cursor: pointer;
 }
 
@@ -71,11 +91,23 @@ br{
   position: relative;
   height: 100vh;
   width: 100vw;
-  margin-left: auto;
-  margin-right: auto;
   white-space: nowrap;
   z-index: 0;
-  background-color: blue;
+  background-color: white;
+  display: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+
+#tileContainerPadder{
+  position: relative;
+  padding-left: 110px;
+  padding-right: 110px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #measure{
@@ -92,7 +124,11 @@ br{
   z-index: 10;
   opacity: 1;
   background-color: black;
-  transition: top 3s ease-in;
+  transition: top 1.5s ease-in;
+}
+
+.menugone{
+  top: -250vh !important;
 }
 
 .colContainers{
@@ -113,9 +149,6 @@ br{
   padding: 20px;
 }
 
-.menugone{
-  top: -250vh !important;
-}
 
 #xCol{
   left: 0;
@@ -147,19 +180,65 @@ br{
   transform: translateY(-50%) translateX(50%);
 }
 
-#dropdown{
-  position: fixed;
-  z-index: 4;
-  top: 5px;
-  left: 5px;
-  width: 100px;
-  height: 30px;
-  background-color: green;
-  border: 2px solid black;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.0);
+.cross{
+  color: red !important;
+  text-align: right;
+  padding-right: 10px;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.0);;
 }
 
-#dropdown:hover{
+.cross:hover{
+  cursor: pointer;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+.buttons{
+  position: fixed;
+  z-index: 4;
+  width: 100px;
+  height: 30px;
+  border: 2px solid black;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.0);
+  box-sizing: border-box;
+  transition: 0.2s;
+  background-color: white;
+  left: 5px;
+}
+
+.buttons:hover{
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 1);
   cursor: pointer;
+}
+
+.noGrid{
+  border: 0px solid rgba(255, 0, 0, 0.0) !important;
+}
+
+#helpbutton{
+  top: 5px;
+}
+
+#palletbutton{
+  top: 45px;
+}
+
+#fillbutton{
+  top: 85px;
+}
+
+#generatebutton{
+  top: 125px;
+  height: 55px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#gridbutton{
+  top: 190px;
+  height: 55px !important;
+}
+
+#backgroundbutton{
+  top: 255px;
+  height: 55px !important;
 }
