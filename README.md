@@ -10,7 +10,7 @@ So, I created one.
 ### Help
 How to use:
 
-First, either download a zip of the project, or visit my [Demo](imfalling.github.io/Up-Up-And-Array);
+First, either download a zip of the project, or visit my [Demo](https://imfalling.github.io/Up-Up-And-Array/);
 
 Then, place any tiles you want in the folder named "img", and name it after the pattern
 ```javascript
