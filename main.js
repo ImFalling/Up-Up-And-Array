@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
   var backgroundbutton = document.getElementById("backgroundbutton");
   backgroundbutton.addEventListener("click", function(e){
-    var bgimg = prompt("Enter Background Image Path (Relative to Project Root)");
+    var bgimg = prompt("Enter Background Image Path (Relative to Project Root) (demo: img/bg.png)");
     tileContainer.style.backgroundImage = "url('" + bgimg + "')";
   }, false);
 
