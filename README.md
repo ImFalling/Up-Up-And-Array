@@ -7,6 +7,10 @@ I created it when I grew frustrated with Tile Map Apps like Tiled Map Manager,
 and wanted a simple, reusable and barebones app.
 So, I created one.
 
+![alt text][logo]
+
+[logo]: http://puu.sh/qSFCR/f7a67592a3.png "Logo Title Text 2"
+
 ### Help
 How to use:
 
