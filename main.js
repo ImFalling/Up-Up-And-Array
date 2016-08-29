@@ -98,12 +98,14 @@ function generateMap(){
     tileContainer.appendChild(parentemp);
     for(var j = 0; j < xLength.value; j++){
       var temp = document.createElement("div");
-      temp.setAttribute("data-id", 0);
+      var random = Math.floor(Math.random() * (15 - 0) + 0);
+      temp.setAttribute("data-id", i);
       temp.classList.add("tile");
       temp.setAttribute("id", "y-"+i.toString()+", x-" + j.toString() + "");
       temp.style.width = "" + TILESIZE.toString() + "px";
       temp.style.height = "" + TILESIZE.toString() + "px";
       temp.style.float = "left";
+      temp.style.backgroundImage = "url('img/tile_" + i + ".png')";
       parentemp.appendChild(temp);
     }
   }
@@ -128,6 +130,9 @@ function createPopup(id){
   //Creates inner div, which is where all the content is
   var popinner = document.createElement("div");
   popinner.classList.add("popupinner");
+  if(id == "genmsg")
+    popinner.classList.add("popupinnerbigger");
+    
   pop.appendChild(popinner);
 
   //Creates X mark to close and remove popup
