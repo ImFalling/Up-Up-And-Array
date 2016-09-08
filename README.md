@@ -1,6 +1,7 @@
 # Up-Up-And-Array
 ## A HTML, CSS, and JS based GUI for creating 2D arrays.
 
+### Update 1.1 Released! Check the bottom for details.
 ### Description
 This is a web-based 2D Array Generator GUI made for my XNA game development.
 I created it when I grew frustrated with Tile Map Apps like Tiled Map Manager,
