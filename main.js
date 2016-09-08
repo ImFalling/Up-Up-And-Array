@@ -10,6 +10,7 @@ var CURRENTTILE;
 var TILESIZE;
 var FINALSTRING;
 var grid = true;
+var a = 0;
 
 window.addEventListener("DOMContentLoaded", function(){
   CURRENTTILE = 0;
@@ -25,19 +26,17 @@ window.addEventListener("DOMContentLoaded", function(){
     createPopup("helpmsg");
   }, false);
 
-  var palletbutton = document.getElementById("palletbutton");
-  palletbutton.addEventListener("click", function(e){
-    createPopup("palletmsg");
-    tilein.value = CURRENTTILE;
-    tileDisplay.innerHTML = "" + CURRENTTILE.toString() + "";
-  }, false);
-
   var fillbutton = document.getElementById("fillbutton");
   fillbutton.addEventListener("click", function(e){
     var fillID = prompt("What ID should fill the entire grid?");
-    for(var i = 0; i < TILES.length; i++){
-      TILES[i].dataset.id = fillID;
-      TILES[i].style.backgroundImage = "url('img/tile_" + fillID + ".png')"
+    if(!(fillID == null) && typeof(fillID) == "number"){
+      for(var i = 0; i < TILES.length; i++){
+          TILES[i].dataset.id = fillID;
+          TILES[i].style.backgroundImage = "url('img/tile_" + fillID + ".png')"
+      }
+    }
+    else{
+      alert("** You have to enter an id to fill the grid **");
     }
   }, false);
 
@@ -81,6 +80,8 @@ window.addEventListener("DOMContentLoaded", function(){
     tileContainerPadder.style.width = "" + (TILESIZE * xLength.value) + "px";
     tileContainerPadder.style.height = "" + (TILESIZE * yLength.value) + "px";
     generateMap();
+    var scrollX = tileContainer.clientWidth / 4;
+    window.scrollTo(scrollX,0);
   }, false);
 
 //EOD
@@ -88,7 +89,6 @@ window.addEventListener("DOMContentLoaded", function(){
 
 function generateMap(){
   tileContainer.style.display = "block";
-  window.scrollTo(0,0);
   createPopup("welcomemsg")
   console.log("Generating Map...")
   for(var i = 0; i < yLength.value; i++){
@@ -112,10 +112,27 @@ function generateMap(){
 
   TILES = document.getElementsByClassName("tile");
   for(var it = 0; it < TILES.length; it++){
-    TILES[it].addEventListener("click", function(){
+    TILES[it].addEventListener("click", function(e){
+      console.log("Clicked");
+      if(a === 0){
+        a = 1;
+      }
+      else if(a == 1){
+        a = 0;
+      }
       this.dataset.id = CURRENTTILE;
       this.style.backgroundImage = 'url("img/tile_' + CURRENTTILE  +'.png")';
+      console.log("A = " +a);
     }, false);
+
+    TILES[it].addEventListener("mouseover", function(){
+      console.log("YOOOOOO");
+      if(a == 1){
+        this.dataset.id = CURRENTTILE;
+        this.style.backgroundImage = 'url("img/tile_' + CURRENTTILE  +'.png")';
+      }
+    }, false);
+
   }
 
 }
@@ -132,7 +149,7 @@ function createPopup(id){
   popinner.classList.add("popupinner");
   if(id == "genmsg")
     popinner.classList.add("popupinnerbigger");
-    
+
   pop.appendChild(popinner);
 
   //Creates X mark to close and remove popup
@@ -162,10 +179,6 @@ function getString(id){
 
     case "helpmsg":
         return "<h4>If you need help, please visit my <a href='https://github.com/ImFalling/Up-Up-And-Array'>GitHub</a> page, <br> and read the documentation.</h4>"
-    break;
-
-    case "palletmsg":
-        return "<h4>Choose your Tile. <br> Current Tile is: <span id='tileDisplay'>" + CURRENTTILE + "</span><br>Preview<br><img id='preview' style='transform: scale(0.7)' src='img/tile_" + CURRENTTILE + ".png'><br><input onclick='updateCurTile()' type='number' name='name' value='0' id='tilein'></h4>"
     break;
 
     case "genmsg":

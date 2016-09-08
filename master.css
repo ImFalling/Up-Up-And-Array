@@ -102,10 +102,10 @@ br{
 
 #tileContainerPadder{
   position: relative;
-  padding-left: 110px;
+  padding-left: 310px;
   padding-right: 110px;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 210px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -223,27 +223,35 @@ br{
   top: 5px;
 }
 
-#palletbutton{
+#fillbutton{
   top: 45px;
 }
 
-#fillbutton{
-  top: 85px;
-}
-
 #generatebutton{
-  top: 125px;
+  top: 85px;
   height: 55px !important;
   text-align: center;
   vertical-align: middle;
 }
 
-#gridbutton{
-  top: 190px;
+#backgroundbutton{
+  top: 145px;
   height: 55px !important;
 }
 
-#backgroundbutton{
-  top: 255px;
+#gridbutton{
+  top: 205px;
   height: 55px !important;
+}
+
+#openPallet{
+  background-color: white;
+  position: fixed;
+  height: 200px;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-top-right-radius: 10px;
 }
