@@ -26,23 +26,23 @@ and get started!
 Note: In Chrome, the number input arrows are hidden. These are required to be pressed to change the ID in the pallet popup.
 Writing a number in the input box wont be enough, you have to write a number and then increase or decrease the number using the arrows in order to update the current tile.
 
-#### Changelog
+## Changelog
 
 ### Update 1.1.5
-## - Fixed a bug with the fill button again,
+#### - Fixed a bug with the fill button again,
 this time restored functionality
 
-## - Added a load array button,
+#### - Added a load array button,
 for loading previously generated arrays.
 
 ### Update 1.1
-## - Fixed a bug with the fill button, where returning null would clear the
+#### - Fixed a bug with the fill button, where returning null would clear the
 entire grid without forewarning.
 
-## - Removed the palett button, and instead added a fixed palett field in
-the bottom left corner.
+#### - Removed the palett button,
+and instead added a fixed palett field in the bottom left corner.
 
-## - New Feature: **Brush!**
+#### - New Feature: **Brush!**
 Currently, the way to use the brush, is to simply click on a tile once,
 which enables brush mode,  and then simply click on a final tile to exit
 brush mode.
