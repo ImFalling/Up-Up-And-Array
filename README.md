@@ -32,12 +32,13 @@ Writing a number in the input box wont be enough, you have to write a number and
 #### - Fixed a bug with the fill button again,
 this time restored functionality
 
-#### - Added a load array button,
-for loading previously generated arrays.
+#### - New Feature: **Load Arrays!**
+Added a button for loading previously generated arrays with a specified syntax.
+Useful for saving / loading, for working on longer projects.
 
 ### Update 1.1
-#### - Fixed a bug with the fill button, where returning null would clear the
-entire grid without forewarning.
+#### - Fixed a bug with the fill button,
+where returning null would clear the entire grid without forewarning.
 
 #### - Removed the palett button,
 and instead added a fixed palett field in the bottom left corner.
