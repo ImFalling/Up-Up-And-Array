@@ -2,7 +2,7 @@
 ## A HTML, CSS, and JS based GUI for creating 2D arrays.
 
 ### Description
-This is a web-based 2D Array Generator GUI made for my XNA game development.
+This is a web-based 2D Array Generator GUI made for my MonoGame framework game development.
 I created it when I grew frustrated with Tile Map Apps like Tiled Map Manager,
 and wanted a simple, reusable and barebones app.
 So, I created one.
@@ -25,6 +25,15 @@ and get started!
 
 Note: In Chrome, the number input arrows are hidden. These are required to be pressed to change the ID in the pallet popup.
 Writing a number in the input box wont be enough, you have to write a number and then increase or decrease the number using the arrows in order to update the current tile.
+
+#### Changelog
+
+### Update 1.1.5
+## - Fixed a bug with the fill button again,
+this time restored functionality
+
+## - Added a load array button,
+for loading previously generated arrays.
 
 ### Update 1.1
 ## - Fixed a bug with the fill button, where returning null would clear the

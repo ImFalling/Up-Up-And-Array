@@ -19,6 +19,11 @@ window.addEventListener("DOMContentLoaded", function(){
   var menu = document.getElementById("menu");
   var tileContainer = document.getElementById("tileContainer");
   var tileContainerPadder = document.getElementById("tileContainerPadder");
+  var tilein = document.getElementById("tilein");
+  tilein.addEventListener("input", function(e){
+    console.log("Hello");
+    updateCurTile();
+  }, false);
 
   //Creates Buttons and adds event listeners
   var helpbutton = document.getElementById("helpbutton");
@@ -29,7 +34,7 @@ window.addEventListener("DOMContentLoaded", function(){
   var fillbutton = document.getElementById("fillbutton");
   fillbutton.addEventListener("click", function(e){
     var fillID = prompt("What ID should fill the entire grid?");
-    if(!(fillID == null) && typeof(fillID) == "number"){
+    if(!(fillID == null)){
       for(var i = 0; i < TILES.length; i++){
           TILES[i].dataset.id = fillID;
           TILES[i].style.backgroundImage = "url('img/tile_" + fillID + ".png')"
@@ -69,6 +74,11 @@ window.addEventListener("DOMContentLoaded", function(){
     var bgimg = prompt("Enter Background Image Path (Relative to Project Root)");
     tileContainer.style.backgroundImage = "url('" + bgimg + "')";
   }, false);
+
+  var loadbutton = document.getElementById("loadbutton");
+  loadbutton.addEventListener("click", function(e){
+    createPopup("loadmsg");
+  }, false)
 
   welcome.addEventListener("click", function(e){
     menu.classList.add("menugone");
@@ -149,6 +159,9 @@ function createPopup(id){
   popinner.classList.add("popupinner");
   if(id == "genmsg")
     popinner.classList.add("popupinnerbigger");
+  else if (id == "loadmsg") {
+    popinner.classList.add("popupinnerbiggest");
+  }
 
   pop.appendChild(popinner);
 
@@ -184,8 +197,48 @@ function getString(id){
     case "genmsg":
         return "<h5>Your Array Has Been Generated Successfully:</h5><textarea id='finaloutput'>[&#10[1,2,3,4,5],/n[5,4,3,2,1]/n]</textarea>"
 
+    case "loadmsg":
+        return "<h6>Note, the syntax of your array needs to be very specific. <br> It needs to contain the enclosing brackets, but no semi-colon at the end. eg: <br>{<br>{1,2,3},<br>{1,2,3},<br>{1,2,3}<br>}<br></h6><textarea class='loading' id='loadfield'></textarea><input style='position: absolute; right: 30px; bottom: 30px;' value='Submit' type='button' onclick='loadArrayFromString()'></input>"
+
     default:
     "no string found"
+  }
+}
+
+function loadArrayFromString(arrayString){
+  var loadfield = document.getElementById("loadfield");
+  var firstString = loadfield.value;
+  firstString = firstString.substring(0, firstString.length - 1);
+  firstString = firstString.split("{").join("");
+  firstString = firstString.split("\n").join("");
+
+  //Gets the number of rows
+  var rowCount = firstString.split("}").length - 1;
+
+  firstString = firstString.split("}").join("");
+
+  //At this point, firstString is the raw unformatted array without the containing brackets.
+
+  //Splits string after every line and pushes into array
+  var stringArray = firstString.split(",").map(function(item) {
+    return parseInt(item, 10);
+  });
+
+  var columnCount = stringArray.length / rowCount;
+
+  console.log(rowCount, columnCount);
+  console.log(stringArray);
+
+  //Core functionality
+  var kek = 0;
+  for(var i = 0; i < rowCount; i++){
+    for(var j = 0; j < columnCount; j++){
+      var tempSelector = document.getElementById("y-"+i+", x-"+j);
+      var currentID = stringArray[kek]
+      tempSelector.dataset.id = currentID;
+      tempSelector.style.backgroundImage = "url('img/tile_" + currentID + ".png')";
+      kek++;
+    }
   }
 }
 
