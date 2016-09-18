@@ -51,6 +51,17 @@ h5{
   transform: translateX(-50%) translateY(-50%);
 }
 
+h6{
+  text-align: center;
+  font-family: arial;
+  font-size: 13px;
+  line-height: 125%;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 textarea{
   width: 80%;
   height: 60%;
@@ -58,6 +69,14 @@ textarea{
   left: 50%;
   top: 65%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+.loading textarea{
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
 }
 
 br{
@@ -185,6 +204,11 @@ br{
   width: 60% !important;
 }
 
+.popupinnerbiggest{
+  height: 60% !important;
+  width: 75% !important;
+}
+
 .cross{
   color: red !important;
   text-align: right;
@@ -242,6 +266,17 @@ br{
 #gridbutton{
   top: 205px;
   height: 55px !important;
+}
+
+#loadbutton{
+  top: 300px;
+  height: 55px !important;
+  border: 2px solid green;
+}
+
+#loadbutton:hover{
+  box-shadow: 0px 0px 2px 2px green;
+  cursor: pointer;
 }
 
 #openPallet{
