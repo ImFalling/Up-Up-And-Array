@@ -28,7 +28,11 @@ Writing a number in the input box wont be enough, you have to write a number and
 
 ## Changelog
 
-### Update 1.1.5
+### Update 1.1.2
+#### - Added simpler tile selection,
+the tile ID updates on keypress, so the arrows no longer have to be clicked.
+
+### Update 1.1.1
 #### - Fixed a bug with the fill button again,
 this time restored functionality
 
