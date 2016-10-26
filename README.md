@@ -7,9 +7,9 @@ I created it when I grew frustrated with Tile Map Apps like Tiled Map Manager,
 and wanted a simple, reusable and barebones app.
 So, I created one.
 
-![alt text][logo]
+![Image Demonstrating the UI][logo]
 
-[logo]: http://puu.sh/qSFCR/f7a67592a3.png "Logo Title Text 2"
+[logo]: http://puu.sh/qSFCR/f7a67592a3.png "Image Demonstrating the UI"
 
 ### Help
 How to use:
@@ -23,8 +23,8 @@ tile_ID.png
 Afterwards, just open index.html with your favorite browser (Tested on Chrome & FF),
 and get started!
 
-Note: In Chrome, the number input arrows are hidden. These are required to be pressed to change the ID in the pallet popup.
-Writing a number in the input box wont be enough, you have to write a number and then increase or decrease the number using the arrows in order to update the current tile.
+~~Note: In Chrome, the number input arrows are hidden. These are required to be pressed to change the ID in the pallet popup.
+Writing a number in the input box wont be enough, you have to write a number and then increase or decrease the number using the arrows in order to update the current tile.~~ Fixed with update 1.1.2
 
 ## Changelog
 
