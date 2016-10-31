@@ -78,7 +78,26 @@ window.addEventListener("DOMContentLoaded", function(){
   var loadbutton = document.getElementById("loadbutton");
   loadbutton.addEventListener("click", function(e){
     createPopup("loadmsg");
-  }, false)
+  }, false);
+
+  var zoomButton = document.getElementById("zoombutton");
+  zoomButton.addEventListener("click", function(e){
+    var scale = prompt("Input zoom factor");
+    if(!(scale == null) && !(scale <= 0)){
+      var tileArray = document.getElementsByClassName("tile");
+      for(var i = 0; i < tileArray.length; i++){
+        var e = tileArray[i];
+        e.style.width = "" + (TILESIZE * scale).toString() + "px";
+        e.style.height = "" + (TILESIZE * scale).toString() + "px";
+        tileContainer.style.width = "" + (TILESIZE * scale * xLength.value) + "px";
+        tileContainer.style.height = "" + (TILESIZE * scale * yLength.value) + "px";
+        var ylevels = document.getElementsByClassName("ylevel");
+        for(var xi = 0; xi < ylevels.length; xi++){
+          ylevels.item(xi).style.height =  "" + (TILESIZE * scale).toString() + "px"
+        }
+      }
+    }
+  }, false);
 
   welcome.addEventListener("click", function(e){
     menu.classList.add("menugone");
@@ -104,6 +123,7 @@ function generateMap(){
   for(var i = 0; i < yLength.value; i++){
     var parentemp = document.createElement("div");
     parentemp.setAttribute("id", "Y-Level: " + i.toString() + "");
+    parentemp.classList.add("ylevel");
     parentemp.style.height = "" + TILESIZE.toString() + "px";
     tileContainer.appendChild(parentemp);
     for(var j = 0; j < xLength.value; j++){
@@ -116,6 +136,7 @@ function generateMap(){
       temp.style.height = "" + TILESIZE.toString() + "px";
       temp.style.float = "left";
       temp.style.backgroundImage = "url('img/tile_" + i + ".png')";
+      temp.style.backgroundSize = "cover";
       parentemp.appendChild(temp);
     }
   }
@@ -188,18 +209,12 @@ function getString(id){
   switch (id) {
     case "welcomemsg":
         return "<h4>Hello, and welcome to this 2D Array Generator made by Jakob Frick. <br><br> For more information, visit my <a href='https://github.com/ImFalling/Up-Up-And-Array'>GitHub</a> page</h4>"
-    break;
-
     case "helpmsg":
         return "<h4>If you need help, please visit my <a href='https://github.com/ImFalling/Up-Up-And-Array'>GitHub</a> page, <br> and read the documentation.</h4>"
-    break;
-
     case "genmsg":
         return "<h5>Your Array Has Been Generated Successfully:</h5><textarea id='finaloutput'>[&#10[1,2,3,4,5],/n[5,4,3,2,1]/n]</textarea>"
-
     case "loadmsg":
         return "<h6>Note, the syntax of your array needs to be very specific. <br> It needs to contain the enclosing brackets, but no semi-colon at the end. eg: <br>{<br>{1,2,3},<br>{1,2,3},<br>{1,2,3}<br>}<br></h6><textarea class='loading' id='loadfield'></textarea><input style='position: absolute; right: 30px; bottom: 30px;' value='Submit' type='button' onclick='loadArrayFromString()'></input>"
-
     default:
     "no string found"
   }
