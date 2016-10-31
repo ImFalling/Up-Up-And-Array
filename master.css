@@ -279,6 +279,10 @@ br{
   cursor: pointer;
 }
 
+#zoombutton{
+  top: 360px;
+}
+
 #openPallet{
   background-color: white;
   position: fixed;
