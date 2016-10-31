@@ -9,7 +9,7 @@ So, I created one.
 
 ![Image Demonstrating the UI][logo]
 
-[logo]: http://puu.sh/qSFCR/f7a67592a3.png "Image Demonstrating the UI"
+[logo]: http://puu.sh/s1EIK/624cddaad3.png "Image Demonstrating the UI"
 
 ### Help
 How to use:
