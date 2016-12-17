@@ -1,3 +1,10 @@
+/*
+//Up Up and Array 2.0
+//Written by Jakob Frick in December 2016
+//Visit GitHub.com/ImFalling/Up-Up-And-Array for more information
+// --- Stylesheet 
+*/
+
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro');
 /*
     font-family: 'Source Sans Pro', sans-serif;
@@ -7,6 +14,48 @@
 body{
     margin: 0;
     padding: 0;
+}
+
+.centered{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.horicentered{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.verticentered{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+h1{
+    margin: inherit;
+}
+
+h2{
+    display: block;
+    position: relative;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+h3{
+    display: block;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+.Tile{
+    position: relative;
+    float: left;
+}
+
+.Tile .hasBorder{
+    border: 1px solid black;
 }
 
 #toolbar-activator{
@@ -23,19 +72,8 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
     cursor: pointer;
     color: white;
-}
-
-h1{
-    margin: inherit;
-}
-
-.Tile{
     position: relative;
-    float: left;
-}
-
-.Tile .hasBorder{
-    border: 1px solid black;
+    z-index: 1001;
 }
 
 #toolbar{
@@ -45,9 +83,64 @@ h1{
     position: relative;
     transition: height 1s, box-shadow 0.6s;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0);
+    z-index: 1000;
+}
+
+#toolbar-container{
+    position: fixed;
+    width: 100vw;
 }
 
 #toolbar-container .extended{
     height: 25vh;
     box-shadow: 0px 2px 5px 0px black;
+}
+
+.toolbarButton{
+    position: relative;
+    width: calc((100% - 16vw) / 8);
+    margin-left: 1vw;
+    margin-right: 1vw;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid darkgray;
+    float: left;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+
+.toolbarButton:hover{
+    box-shadow: 0px 0px 5px 0px black;
+    cursor: pointer;
+}
+
+#toolbar-button-container{
+    width: 95vw;
+    position: relative;
+    z-index: 1002;
+    height: 50%;
+}
+
+.popup{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 25px;
+    z-index: 2001;
+    background-color: lightgray;
+    box-shadow: 2px 2px 10px 0px black;
+}
+
+.popupBG{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 2000;
+    position: relative;
+}
+
+.newinputs{
+    display: block;
+    float: none;
+    position: relative;
+    margin-top: 25px;
 }

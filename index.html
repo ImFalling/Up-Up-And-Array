@@ -1,3 +1,10 @@
+<!-- 
+//Up Up and Array 2.0
+//Written by Jakob Frick in December 2016
+//Visit GitHub.com/ImFalling/Up-Up-And-Array for more information
+// --- Markup Document 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,24 +12,27 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="master.css" rel="stylesheet">
+        <script src="markup.js"></script>        
+        <script src="tools.js"></script>
         <script src="main.js"></script>
     </head>
     <body>
         <div id="toolbar-container">
             <div id="toolbar">
-                <div class="toolbarButton" id="button-help"></div>
-                <div class="toolbarButton" id="button-fill"></div>
-                <div class="toolbarButton" id="button-genArray"></div>
-                <div class="toolbarButton" id="button-setBG"></div>
-                <div class="toolbarButton" id="button-grid"></div>
-                <div class="toolbarButton" id="button-load"></div>
-                <div class="toolbarButton" id="button-zoom"></div>
+                <div id="toolbar-button-container" class="centered">
+                    <div class="toolbarButton verticentered" id="button-new" data-action="new"><h3>New</h3></div>
+                    <div class="toolbarButton verticentered" id="button-fill" data-action="fill"><h3>Fill</h3></div>
+                    <div class="toolbarButton verticentered" id="button-genArray" data-action="genArray"><h3>Generate</h3></div>
+                    <div class="toolbarButton verticentered" id="button-setBG" data-action="setBG"><h3>Background</h3></div>
+                    <div class="toolbarButton verticentered" id="button-grid" data-action="grid"><h3>Toggle Grid</h3></div>
+                    <div class="toolbarButton verticentered" id="button-load" data-action="load"><h3>Load</h3></div>
+                    <div class="toolbarButton verticentered" id="button-zoom" data-action="zoom"><h3>Zoom</h3></div>
+                    <div class="toolbarButton verticentered" id="button-help" data-action="help"><h3>Help</h3></div>
+                </div>
             </div>
             <div id="toolbar-activator"><h1>Tools</h1></div>
 
             <div id="workspace">
-                <div id="tileContainer">
-                </div>
             </div>
 
         </div>
