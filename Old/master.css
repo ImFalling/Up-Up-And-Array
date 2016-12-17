@@ -1,0 +1,296 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+}
+
+h1{
+  color: white;
+  font-family: "Comic Sans MS";
+  text-align: center;
+  text-shadow: 0px 0px 60px white;
+  transition: 0.2s;
+}
+
+h1:hover{
+  text-shadow: 0px 0px 25px white;
+  cursor: pointer;
+}
+
+h2{
+  color: white;
+  font-family: helvetica;
+  text-align: center;
+  font-size: 19px;
+  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+}
+
+h4{
+  text-align: center;
+  font-family: arial;
+  font-size: 13px;
+  line-height: 125%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+h5{
+  text-align: center;
+  font-family: arial;
+  font-size: 26px;
+  line-height: 125%;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+h6{
+  text-align: center;
+  font-family: arial;
+  font-size: 13px;
+  line-height: 125%;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+textarea{
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.loading textarea{
+  width: 80%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+}
+
+br{
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.container{
+  height: 10%;
+  width: 80%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tile{
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+
+.tile:hover{
+  border: 2px solid red !important;
+  cursor: pointer;
+}
+
+#tileContainer{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  white-space: nowrap;
+  z-index: 0;
+  background-color: white;
+  display: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+}
+
+#tileContainerPadder{
+  position: relative;
+  padding-left: 310px;
+  padding-right: 110px;
+  padding-top: 50px;
+  padding-bottom: 210px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#measure{
+  height: 1vh;
+  width: 1vw;
+  display: none;
+}
+
+#menu{
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 10;
+  opacity: 1;
+  background-color: black;
+  transition: top 1.5s ease-in;
+}
+
+.menugone{
+  top: -250vh !important;
+}
+
+.colContainers{
+  position: relative;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(-25%);
+  height: auto;
+  width: 200px;
+}
+
+.column{
+  float: left;
+  padding: 20px;
+}
+
+
+#xCol{
+  left: 0;
+}
+
+#yCol{
+  right: 0;
+}
+
+.popupouter{
+  position: fixed;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.popupinner{
+  z-index: 6;
+  position: fixed;
+  width: 30%;
+  height: 23%;
+  background-color: white;
+  border: 3px solid gray;
+  border-radius: 12px;
+  box-shadow: 0px 0px 8px 1px black;
+  top: 50%;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%);
+}
+
+.popupinnerbigger{
+  height: 46% !important;
+  width: 60% !important;
+}
+
+.popupinnerbiggest{
+  height: 60% !important;
+  width: 75% !important;
+}
+
+.cross{
+  color: red !important;
+  text-align: right;
+  padding-right: 10px;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.0);;
+}
+
+.cross:hover{
+  cursor: pointer;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+}
+
+.buttons{
+  position: fixed;
+  z-index: 4;
+  width: 100px;
+  height: 30px;
+  border: 2px solid black;
+  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.0);
+  box-sizing: border-box;
+  transition: 0.2s;
+  background-color: white;
+  left: 5px;
+}
+
+.buttons:hover{
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.noGrid{
+  border: 0px solid rgba(255, 0, 0, 0.0) !important;
+}
+
+#helpbutton{
+  top: 5px;
+}
+
+#fillbutton{
+  top: 45px;
+}
+
+#generatebutton{
+  top: 85px;
+  height: 55px !important;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#backgroundbutton{
+  top: 145px;
+  height: 55px !important;
+}
+
+#gridbutton{
+  top: 205px;
+  height: 55px !important;
+}
+
+#loadbutton{
+  top: 300px;
+  height: 55px !important;
+  border: 2px solid green;
+}
+
+#loadbutton:hover{
+  box-shadow: 0px 0px 2px 2px green;
+  cursor: pointer;
+}
+
+#zoombutton{
+  top: 360px;
+}
+
+#openPallet{
+  background-color: white;
+  position: fixed;
+  height: 200px;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-top-right-radius: 10px;
+}

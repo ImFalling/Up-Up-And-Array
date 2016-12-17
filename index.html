@@ -1,47 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Up, Up, And Array!</title>
-    <script type="text/javascript" src="main.js"></script>
-    <link rel="stylesheet" href="master.css" media="screen" charset="utf-8">
-  </head>
-  <body>
-    <div id="measure"></div>
-    <div id="menu">
-      <div class="container">
-        <h1 id="welcome">Welcome.</h1>
-      </div>
-      <div class="colContainers">
-        <div class="column" id="xCol">
-          <h2>X-Axis</h2>
-          <input type="number" name="name" value="16" id="xin">
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="master.css" rel="stylesheet">
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div id="toolbar-container">
+            <div id="toolbar">
+                <div class="toolbarButton" id="button-help"></div>
+                <div class="toolbarButton" id="button-fill"></div>
+                <div class="toolbarButton" id="button-genArray"></div>
+                <div class="toolbarButton" id="button-setBG"></div>
+                <div class="toolbarButton" id="button-grid"></div>
+                <div class="toolbarButton" id="button-load"></div>
+                <div class="toolbarButton" id="button-zoom"></div>
+            </div>
+            <div id="toolbar-activator"><h1>Tools</h1></div>
+
+            <div id="workspace">
+                <div id="tileContainer">
+                </div>
+            </div>
+
         </div>
-        <div class="column" id="yCol">
-          <h2>Y-Axis</h2>
-          <input type="number" name="name" value="16" id="yin">
-        </div>
-        <div class="column" id="sizeCol">
-          <h2>Tile Size (px)</h2>
-          <input type="number" name="name" value="64" id="sizein">
-        </div>
-      </div>
-    </div>
-    <div id="popups"></div>
-    <div class="buttons" id="helpbutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Help</h2></div>
-    <div class="buttons" id="fillbutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Fill</h2></div>
-    <div class="buttons" id="generatebutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Generate Array</h2></div>
-    <div class="buttons" id="gridbutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Grid On/Off</h2></div>
-    <div class="buttons" id="backgroundbutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Set BG Image</h2></div>
-    <div class="buttons" id="loadbutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Load an Array</h2></div>
-    <div class="buttons" id="zoombutton"><h2 style="font-family: 'Helvetica'; color: black !important;">Zoom</h2></div>
-    <div id="tileContainerPadder"><div id="tileContainer"></div></div>
-    <div id="openPallet">
-      <h4>Choose your Tile. <br>
-        Current Tile is: <span id='tileDisplay'> <h6 id="CURRENTTILE"></h6></span> <br>
-        Preview<br><img id='preview' style='transform: scale(0.7)' src="img/tile_0.png"><br>
-        <input onclick='updateCurTile()' type='number' name='name' value='0' id='tilein'>
-      </h4>
-    </div>
-  </body>
+    </body>
 </html>
