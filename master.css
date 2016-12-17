@@ -52,9 +52,10 @@ h3{
 .Tile{
     position: relative;
     float: left;
+    box-sizing: border-box;
 }
 
-.Tile .hasBorder{
+.Tile.hasBorder{
     border: 1px solid black;
 }
 
@@ -73,7 +74,7 @@ h3{
     cursor: pointer;
     color: white;
     position: relative;
-    z-index: 1001;
+    z-index: 1002;
 }
 
 #toolbar{
@@ -83,12 +84,14 @@ h3{
     position: relative;
     transition: height 1s, box-shadow 0.6s;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0);
-    z-index: 1000;
+    z-index: 1001;
 }
 
 #toolbar-container{
     position: fixed;
     width: 100vw;
+    top: 0;
+    z-index: 1000;
 }
 
 #toolbar-container .extended{
@@ -117,7 +120,7 @@ h3{
 #toolbar-button-container{
     width: 95vw;
     position: relative;
-    z-index: 1002;
+    z-index: 1003;
     height: 50%;
 }
 
@@ -135,7 +138,9 @@ h3{
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 2000;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .newinputs{
@@ -143,4 +148,10 @@ h3{
     float: none;
     position: relative;
     margin-top: 25px;
+}
+
+#workspace{
+    margin: 125px;
+    border: 2px solid black;
+    display: none;
 }

@@ -33,21 +33,50 @@ window.addEventListener("DOMContentLoaded", function(){
 function Tile(width, height, initval){
 
     //Markup Logic
-    var temp = document.createElement("div");
-    temp.height = height + "px";
-    temp.width = width + "px";
-    temp.classList.add("Tile");
+    this.element = document.createElement("div");
+    this.element.style.height = height + "px";
+    this.element.style.width = width + "px";
+    this.element.classList.add("Tile");
 
     //Object Logic
-    this.enableBorder = function(state){
-        if(state)
-            temp.classList.add("hasBorder");
-        else
-            temp.classList.remove("hasBorder");
+    var border = false;
+
+    this.toggleBorder = function(){
+        if(!border){
+            this.element.classList.add("hasBorder");
+            border = true;
+        }
+        else{
+            this.element.classList.remove("hasBorder");
+            border = false;
+        }
     }
-    this.enableBorder(true);
 }
 
+var ArrayIndex;
 function CreateTileGrid(width, height, size){
-    console.log("Creating a Tile Grid with the dimensions "+ width +" and "+ height)
+    console.log("Creating a Tile Grid with the dimensions "+ width +" and "+ height);
+    ArrayIndex = [];
+    var context = document.getElementById("workspace");
+    context.style.width = width * size + "px";
+    context.style.height = height * size + "px";
+    context.style.display = "block";
+
+    for(var i = 0; i < height; i++){
+        var arrayLayer = [];
+        var layer = document.createElement("div");
+        layer.style.width = "100%";
+        layer.style.height = size + "px";
+
+        for(var j = 0; j < width; j++){
+            var tile = new Tile(size, size, 0);
+            tile.toggleBorder();
+            arrayLayer.push(tile);
+            layer.appendChild(tile.element);
+        }
+
+        ArrayIndex.push(arrayLayer);
+        context.appendChild(layer);
+    }
+
 }

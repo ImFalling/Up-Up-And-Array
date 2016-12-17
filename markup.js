@@ -15,7 +15,7 @@ function submitGridSize(){
     var inputs = document.getElementsByClassName("newinputs");
     if(!(inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "")){
         CreateTileGrid(inputs[0].value, inputs[1].value, inputs[2].value);
-        inputs[0].parentNode.parentNode.parentNode.removeChild(inputs[0].parentNode.parentNode);
+        document.getElementsByClassName("popupBG")[0].parentNode.removeChild(document.getElementsByClassName("popupBG")[0]);
     }
     else
         alert("Invalid Measurements");

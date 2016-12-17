@@ -11,6 +11,9 @@ function getActionFromName(string){
         case "fill":
             fillAction();
             break;
+        case "grid":
+            gridAction();
+            break;
     }
 }
 
@@ -42,4 +45,12 @@ function newAction(){
 
 function fillAction(){
 
+}
+
+function gridAction(){
+    for(var i = 0; i < ArrayIndex.length; i++){
+        for(var j = 0; j < ArrayIndex[i].length; j++){
+            ArrayIndex[i][j].toggleBorder();
+        }
+    }
 }
