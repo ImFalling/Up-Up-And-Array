@@ -4,7 +4,7 @@
 ### Description
 This is a web-based 2D Array Generator GUI made for my MonoGame framework game development.
 I created it when I grew frustrated with Tile Map Apps like Tiled Map Manager,
-and wanted a simple, reusable and barebones app.
+and wanted a simple, reusable and **barebones** app.
 So, I created one.
 
 ![Image Demonstrating the UI][logo]
@@ -14,19 +14,35 @@ So, I created one.
 ### Help
 How to use:
 
-First, either download a zip of the project, or visit my [Demo](https://imfalling.github.io/Up-Up-And-Array/);
+First, either download a zip of the project, or visit my [Demo](https://imfalling.github.io/Up-Up-And-Array/) if you simply want to try out the interface.
 
-Then, place any tiles you want in the folder named "img", and name it after the pattern
+Then, place any tiles you want in the folder named "tiles", and name them after the pattern
 ```javascript
-tile_ID.png
+number.x
 ```
+(Supported file extensions are JPEG, JPG, PNG and BMP. All tiles must have the same extension.)
 Afterwards, just open index.html with your favorite browser (Tested on Chrome & FF),
-and get started!
+and get started. 
+Create a new Map by clicking "Tools", and then "New". Enter your chosen file extension, and the tilegrid's dimension.
+After that, you'll find your pallet in the bottom left corner of the screen.
+After you're finished with your masterpiece, simply click "Generate", in order to have the program spit out a C# syntaxed 2D Array.
 
-~~Note: In Chrome, the number input arrows are hidden. These are required to be pressed to change the ID in the pallet popup.
-Writing a number in the input box wont be enough, you have to write a number and then increase or decrease the number using the arrows in order to update the current tile.~~ Fixed with update 1.1.2
+Thanks for using Up, Up and Array!
 
 ## Changelog
+
+### Update 2.0
+#### - Reworked entire UI
+Created a slightly easier to use UI.
+
+#### - Better Code Structure
+Makes it easier to add and modify code.
+Markup.js is a file containing templates for popup messages.
+Tools.js is a file containing functions used throughout the project.
+Main.js still remains what it once was - the core functionalities.
+
+#### - Updated Images and Guides on this readme
+With user availability in mind.
 
 ### Update 1.2
 #### - Added a zoom feature,
