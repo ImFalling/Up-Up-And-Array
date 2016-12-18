@@ -99,7 +99,11 @@ function ResizeTilegrid(scalefactor){
 
 //Close any active popups function
 function ClosePopups(){
-    document.getElementsByClassName("popupBG")[0].parentNode.removeChild(document.getElementsByClassName("popupBG")[0]);
+    var popups = document.getElementsByClassName("popupBG");
+    var i = 0;
+    while(popups.length != 0){
+        popups[i].parentNode.removeChild(popups[i]);
+    }
 }
 
 //Update Current Tile Function
