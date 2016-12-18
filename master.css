@@ -99,7 +99,7 @@ h4{
     background-color: gray;
     overflow: hidden;
     position: relative;
-    transition: box-shadow 0.6s;
+    transition: box-shadow 0.3s;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0);
     z-index: 1001;
 }
@@ -109,7 +109,7 @@ h4{
     width: 100vw;
     top: -20vh;
     z-index: 1000;
-    transition: top 0.6s;
+    transition: top 0.3s;
 }
 
 #toolbar-container.extended{

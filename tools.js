@@ -11,6 +11,9 @@ function getActionFromName(string){
         case "fill":
             fillAction();
             break;
+        case "genArray":
+            genAction();
+            break;
         case "setBG":
             bgAction();
             break;
@@ -52,6 +55,11 @@ function newAction(){
 function fillAction(){
     new Popup(300, 250, fillMarkup);
     fillPost();
+}
+
+function genAction(){
+    new Popup(600, 450, genMarkup)
+    genPost();
 }
 
 function bgAction(){

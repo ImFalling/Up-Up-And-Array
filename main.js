@@ -47,7 +47,14 @@ window.addEventListener("DOMContentLoaded", function(){
             document.getElementById("toolbar-container").classList.remove("extended");
             toolbarExtended = false;
         }
-    }, false)
+    }, false);
+
+    document.getElementById("toolbar-container").addEventListener("mouseleave", function(e){
+        if(toolbarExtended){
+            document.getElementById("toolbar-container").classList.remove("extended");
+            toolbarExtended = false;
+        }
+    }, false);
 
     var buttons = document.getElementsByClassName("toolbarButton");
     for(var i = 0; i < buttons.length; i++){
@@ -147,6 +154,7 @@ function CreateTileGrid(width, height, size){
 
 }
 
+//Close any active popups function
 function ClosePopups(){
     document.getElementsByClassName("popupBG")[0].parentNode.removeChild(document.getElementsByClassName("popupBG")[0]);
 }
@@ -157,4 +165,22 @@ function UpdateCurrentTile(newVal){
     cPreviewNumber.innerHTML = newVal;
     cController.value = newVal;
     CURRENT_TILE = newVal;
+}
+
+//Array Generation function
+function GenerateArray(){
+    var returnable = "{\n";
+    for(var i = 0; i < ArrayIndex.length; i++){
+        returnable += "{";
+        for(var j = 0; j < ArrayIndex[i].length-1; j++){
+            returnable += "{"+ArrayIndex[i][j].element.dataset.value+"},"
+        }
+        returnable += "{"+ArrayIndex[i][ArrayIndex[i].length-1].element.dataset.value+"}";
+        if(i == ArrayIndex.length-1)
+            returnable += "}\n";
+        else
+            returnable += "},\n";
+    }
+    returnable += "};"
+    return returnable;
 }

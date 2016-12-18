@@ -41,7 +41,7 @@ function fillPost(){
     var preview = document.getElementById("preview");
     var previewNumber = document.getElementById("previewNumber");
 
-    document.getElementById("preview").style.backgroundImage = "url("+CURRENT_TILE+"."+fileExtenstion+")";
+    preview.style.backgroundImage = "url(tiles/"+CURRENT_TILE+"."+fileExtenstion+")";
     previewNumber.addEventListener("change", function(){
         preview.style.backgroundImage = "url(tiles/"+previewNumber.value+"."+fileExtenstion+")";
     }, false);
@@ -63,6 +63,15 @@ function submitFill(){
         }
         ClosePopups();
     }
+}
+
+var genMarkup = `
+<h2 class='horicentered'> Your Generated Array (C# Syntaxed): </h2>
+<textarea style="width: 90%; height: 80%;" class="horicentered newinputs" id="outputTextarea"></textarea>
+`;
+
+function genPost(){
+    document.getElementById("outputTextarea").innerHTML = GenerateArray();
 }
 
 var bgMarkup = `
