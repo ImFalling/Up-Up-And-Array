@@ -9,7 +9,7 @@ So, I created one.
 
 ![Image Demonstrating the UI][logo]
 
-[logo]: http://puu.sh/s1EIK/624cddaad3.png "Image Demonstrating the UI"
+[logo]: http://i.imgur.com/BHWYEil.png "Image Demonstrating the UI"
 
 ### Help
 How to use:
@@ -20,14 +20,17 @@ Then, place any tiles you want in the folder named "tiles", and name them after 
 ```javascript
 number.x
 ```
+Where x is your file extension of choice.
+
 (Supported file extensions are JPEG, JPG, PNG and BMP. All tiles must have the same extension.)
+
 Afterwards, just open index.html with your favorite browser (Tested on Chrome & FF),
 and get started. 
 Create a new Map by clicking "Tools", and then "New". Enter your chosen file extension, and the tilegrid's dimension.
 After that, you'll find your pallet in the bottom left corner of the screen.
 After you're finished with your masterpiece, simply click "Generate", in order to have the program spit out a C# syntaxed 2D Array.
 
-Thanks for using Up, Up and Array!
+**Thanks for using Up, Up and Array!**
 
 ## Changelog
 
