@@ -11,8 +11,14 @@ function getActionFromName(string){
         case "fill":
             fillAction();
             break;
+        case "setBG":
+            bgAction();
+            break;
         case "grid":
             gridAction();
+            break;
+        case "help":
+            helpAction();
             break;
     }
 }
@@ -40,11 +46,15 @@ function Popup(width, height, content){
 
 //Button actions
 function newAction(){
-    new Popup(350, 280, newMarkup);
+    new Popup(350, 310, newMarkup);
 }
 
 function fillAction(){
+    new Popup(300, 250, fillMarkup);
+}
 
+function bgAction(){
+    new Popup(350, 225, bgMarkup);
 }
 
 function gridAction(){
@@ -53,4 +63,8 @@ function gridAction(){
             ArrayIndex[i][j].toggleBorder();
         }
     }
+}
+
+function helpAction(){
+    new Popup(350, 280, helpMarkup);
 }

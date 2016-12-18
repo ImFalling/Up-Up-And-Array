@@ -53,10 +53,17 @@ h3{
     position: relative;
     float: left;
     box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .Tile.hasBorder{
     border: 1px solid black;
+}
+
+.Tile:hover{
+    border-color: red;
 }
 
 #toolbar-activator{
@@ -154,4 +161,12 @@ h3{
     margin: 125px;
     border: 2px solid black;
     display: none;
+    background-size: cover;
+}
+
+.imglink{
+    transition: 0.1s;
+}
+.imglink:hover{
+    box-shadow: 0px 0px 6px 1px black;
 }

@@ -37,6 +37,10 @@ function Tile(width, height, initval){
     this.element.style.height = height + "px";
     this.element.style.width = width + "px";
     this.element.classList.add("Tile");
+    this.element.dataset.value = initval;
+    this.element.style.backgroundImage = "url('tiles/"+initval+"."+fileExtenstion+"')";
+    this.element.style.backgroundSize = "cover";
+    this.element.style.backgroundRepeat = "no-repeat";
 
     //Object Logic
     var border = false;
@@ -51,13 +55,25 @@ function Tile(width, height, initval){
             border = false;
         }
     }
+
+    this.setValue = function(val){
+        this.element.dataset.value = val;
+        this.element.style.background = "url('tiles/"+val+"')";
+    }
 }
 
 var ArrayIndex;
+var fileExtenstion = "png";
+
 function CreateTileGrid(width, height, size){
     console.log("Creating a Tile Grid with the dimensions "+ width +" and "+ height);
     ArrayIndex = [];
     var context = document.getElementById("workspace");
+    
+    while (context.hasChildNodes()) {
+        context.removeChild(context.lastChild);
+    }
+
     context.style.width = width * size + "px";
     context.style.height = height * size + "px";
     context.style.display = "block";
@@ -79,4 +95,8 @@ function CreateTileGrid(width, height, size){
         context.appendChild(layer);
     }
 
+}
+
+function ClosePopups(){
+    document.getElementsByClassName("popupBG")[0].parentNode.removeChild(document.getElementsByClassName("popupBG")[0]);
 }
