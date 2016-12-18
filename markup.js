@@ -86,6 +86,29 @@ function submitBGImage(){
     ClosePopups();
 }
 
+var loadMarkup=`
+<h2 class='horicentered'> Load an Array (C# Syntaxed) </h2>
+<textarea style="width: 90%; height: 70%;" class="horicentered newinputs" id="inputTextarea"></textarea>
+<button class="horicentered newinputs" onclick="submitLoad()">Submit</button>
+`;
+
+function submitLoad(){
+    ParseArray(document.getElementById("inputTextarea").value);
+    ClosePopups();
+}
+
+var zoomMarkup=`
+<h2 class='horicentered'> Input a Zoom Scale Factor </h2>
+<h3 style="display: block; position: relative;"class="horicentered">Default: 1</h3>
+<input class="horicentered newinputs" id="zmfactor" type="text" placeholder="Scale Factor"/>
+<button class="horicentered newinputs" onclick="submitZoom()">Submit</button>
+`;
+
+function submitZoom(){
+    ResizeTilegrid(document.getElementById("zmfactor").value);
+    ClosePopups();
+}
+
 var helpMarkup = `
 <h2 class='horicentered'> Need Help? </h2>
 <h3 style="display: block; position: relative;"class="horicentered">Visit My GitHub Page Here</h3>

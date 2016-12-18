@@ -176,6 +176,7 @@ h4{
     display: none;
     background-size: cover;
     position: relative;
+    transform-origin: top left;
 }
 
 .imglink{

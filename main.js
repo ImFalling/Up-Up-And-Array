@@ -68,6 +68,8 @@ window.addEventListener("DOMContentLoaded", function(){
 
 //Tile Constructor
 function Tile(width, height, initval){
+    this.initHeight = height;
+    this.initWidth = width;
 
     //Markup Logic
     this.element = document.createElement("div");
@@ -94,16 +96,17 @@ function Tile(width, height, initval){
         }
     }
 
+    //Function for setting the value of the tile
     this.setValue = function(val){
         this.element.dataset.value = val;
         this.element.style.background = "url('tiles/"+val+"."+fileExtenstion+"')";
     }
 
+    //Arbitrary reference to tile object, in case of branched code replacing "this";
     var _this = this;
 
     //Event Listeners
     this.element.addEventListener("click", function(e){
-        console.log(e.target);
         _this.setValue(CURRENT_TILE);
         if(BRUSH_ACTIVE)
             BRUSH_ACTIVE = false;
@@ -151,36 +154,4 @@ function CreateTileGrid(width, height, size){
         ArrayIndex.push(arrayLayer);
         context.appendChild(layer);
     }
-
-}
-
-//Close any active popups function
-function ClosePopups(){
-    document.getElementsByClassName("popupBG")[0].parentNode.removeChild(document.getElementsByClassName("popupBG")[0]);
-}
-
-//Update Current Tile Function
-function UpdateCurrentTile(newVal){
-    cPreview.style.backgroundImage = "url('tiles/"+newVal+"."+fileExtenstion+"')";
-    cPreviewNumber.innerHTML = newVal;
-    cController.value = newVal;
-    CURRENT_TILE = newVal;
-}
-
-//Array Generation function
-function GenerateArray(){
-    var returnable = "{\n";
-    for(var i = 0; i < ArrayIndex.length; i++){
-        returnable += "{";
-        for(var j = 0; j < ArrayIndex[i].length-1; j++){
-            returnable += "{"+ArrayIndex[i][j].element.dataset.value+"},"
-        }
-        returnable += "{"+ArrayIndex[i][ArrayIndex[i].length-1].element.dataset.value+"}";
-        if(i == ArrayIndex.length-1)
-            returnable += "}\n";
-        else
-            returnable += "},\n";
-    }
-    returnable += "};"
-    return returnable;
 }
