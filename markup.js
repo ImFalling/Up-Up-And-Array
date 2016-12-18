@@ -22,6 +22,8 @@ function submitGridSize(){
     var inputs = document.getElementsByClassName("newinputs");
     if(!(inputs[0].value == "" || inputs[1].value == "" || inputs[2].value == "")){
         CreateTileGrid(inputs[0].value, inputs[1].value, inputs[2].value);
+        document.getElementById("pallet").style.display = "block";
+        UpdateCurrentTile(1);
         ClosePopups();
     }
     else
@@ -34,6 +36,34 @@ var fillMarkup = `
 <input class="horicentered newinputs" type="number" value="0" id="previewNumber"/>
 <button class="horicentered newinputs" onclick="submitFill()">Submit</button>
 `;
+
+function fillPost(){
+    var preview = document.getElementById("preview");
+    var previewNumber = document.getElementById("previewNumber");
+
+    document.getElementById("preview").style.backgroundImage = "url("+CURRENT_TILE+"."+fileExtenstion+")";
+    previewNumber.addEventListener("change", function(){
+        preview.style.backgroundImage = "url(tiles/"+previewNumber.value+"."+fileExtenstion+")";
+    }, false);
+    previewNumber.value = CURRENT_TILE;
+}
+
+function submitFill(){
+    if(ArrayIndex == undefined){
+        alert("No Grid To Fill!")
+        ClosePopups();
+    }
+    else{
+        var x = document.getElementById("previewNumber").value;
+        for(var i = 0; i < ArrayIndex.length; i++){
+            var ArrayLayer = ArrayIndex[i];
+            for(var j = 0; j < ArrayIndex[i].length; j++){
+                ArrayLayer[j].setValue(x);
+            }
+        }
+        ClosePopups();
+    }
+}
 
 var bgMarkup = `
 <h2 class='horicentered'> Select Background </h2>

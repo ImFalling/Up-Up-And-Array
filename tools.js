@@ -51,6 +51,7 @@ function newAction(){
 
 function fillAction(){
     new Popup(300, 250, fillMarkup);
+    fillPost();
 }
 
 function bgAction(){
