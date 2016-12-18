@@ -1,296 +1,241 @@
-*{
-  margin: 0;
-  padding: 0;
-}
+/*
+//Up Up and Array 2.0
+//Written by Jakob Frick in December 2016
+//Visit GitHub.com/ImFalling/Up-Up-And-Array for more information
+// --- Stylesheet 
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Source+Sans+Pro');
+/*
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Roboto Slab', serif;
+*/
 
 body{
-  height: 100vh;
-  width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+.centered{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.horicentered{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.verticentered{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.rightHeavy{
+    left: 75%;
+    transform: translateX(-50%);
 }
 
 h1{
-  color: white;
-  font-family: "Comic Sans MS";
-  text-align: center;
-  text-shadow: 0px 0px 60px white;
-  transition: 0.2s;
-}
-
-h1:hover{
-  text-shadow: 0px 0px 25px white;
-  cursor: pointer;
+    margin: inherit;
 }
 
 h2{
-  color: white;
-  font-family: helvetica;
-  text-align: center;
-  font-size: 19px;
-  text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.5);
+    display: block;
+    position: relative;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+}
+
+h3{
+    display: block;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
 }
 
 h4{
-  text-align: center;
-  font-family: arial;
-  font-size: 13px;
-  line-height: 125%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
-h5{
-  text-align: center;
-  font-family: arial;
-  font-size: 26px;
-  line-height: 125%;
-  position: absolute;
-  left: 50%;
-  top: 20%;
-  transform: translateX(-50%) translateY(-50%);
+.Tile{
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    cursor: pointer;
 }
 
-h6{
-  text-align: center;
-  font-family: arial;
-  font-size: 13px;
-  line-height: 125%;
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translateX(-50%);
+.Tile.hasBorder{
+    border: 1px solid black;
 }
 
-textarea{
-  width: 80%;
-  height: 60%;
-  position: absolute;
-  left: 50%;
-  top: 65%;
-  transform: translateX(-50%) translateY(-50%);
+.Tile:hover{
+    border: 1px solid red !important;
 }
 
-.loading textarea{
-  width: 80%;
-  height: 60%;
-  position: absolute;
-  left: 50%;
-  top: 70%;
+#toolbar-activator{
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    height: 45px;
+    background-color: gray;
+    box-shadow: 0px 2px 5px 0px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Source Sans Pro', sans-serif;
+    cursor: pointer;
+    color: white;
+    position: relative;
+    z-index: 1002;
 }
 
-br{
-  padding-top: 2px;
-  padding-bottom: 2px;
+#toolbar{
+    height: 20vh;
+    width: 100%;
+    background-color: gray;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0);
+    z-index: 1001;
 }
 
-.container{
-  height: 10%;
-  width: 80%;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+#toolbar-container{
+    position: fixed;
+    width: 100vw;
+    top: -20vh;
+    z-index: 1000;
+    transition: top 0.3s;
 }
 
-.tile{
-  box-sizing: border-box;
-  border: 1px solid black;
+#toolbar-container.extended{
+    top: 0;
+}
+#toolbar-container.extended #toolbar{
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 1);  
 }
 
-.tile:hover{
-  border: 2px solid red !important;
-  cursor: pointer;
+.toolbarButton{
+    position: relative;
+    width: calc((100% - 16vw) / 8);
+    margin-left: 1vw;
+    margin-right: 1vw;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid darkgray;
+    float: left;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
 }
 
-#tileContainer{
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  white-space: nowrap;
-  z-index: 0;
-  background-color: white;
-  display: none;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border: 1px solid black;
+.toolbarButton:hover{
+    box-shadow: 0px 0px 5px 0px black;
+    cursor: pointer;
 }
 
-#tileContainerPadder{
-  position: relative;
-  padding-left: 310px;
-  padding-right: 110px;
-  padding-top: 50px;
-  padding-bottom: 210px;
-  margin-left: auto;
-  margin-right: auto;
+#toolbar-button-container{
+    width: 95vw;
+    position: relative;
+    z-index: 1003;
+    height: 50%;
 }
 
-#measure{
-  height: 1vh;
-  width: 1vw;
-  display: none;
+.popup{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 25px;
+    z-index: 2001;
+    background-color: lightgray;
+    box-shadow: 2px 2px 10px 0px black;
 }
 
-#menu{
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 10;
-  opacity: 1;
-  background-color: black;
-  transition: top 1.5s ease-in;
+.popupBG{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 2000;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.menugone{
-  top: -250vh !important;
+.newinputs{
+    display: block;
+    float: none;
+    position: relative;
+    margin-top: 25px;
 }
 
-.colContainers{
-  position: relative;
-  top: 50%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translateY(-25%);
-  height: auto;
-  width: 200px;
+#workspace{
+    margin: 125px;
+    border: 2px solid black;
+    display: none;
+    background-size: cover;
+    position: relative;
+    transform-origin: top left;
 }
 
-.column{
-  float: left;
-  padding: 20px;
+.imglink{
+    transition: 0.1s;
+}
+.imglink:hover{
+    box-shadow: 0px 0px 6px 1px black;
 }
 
-
-#xCol{
-  left: 0;
+#preview{
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-#yCol{
-  right: 0;
+#pallet{
+    position: fixed;
+    left: -100px;
+    bottom: -100px;
+    width: 200px;
+    height: 200px;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-top-right-radius: 5px;
+    transition: left 0.2s, bottom 0.2s;
+    z-index: 1005;
+    background-color: white;
+    display: none;
 }
 
-.popupouter{
-  position: fixed;
-  z-index: 5;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.85);
+#pallet:hover{
+    left: 0;
+    bottom: 0;
 }
 
-.popupinner{
-  z-index: 6;
-  position: fixed;
-  width: 30%;
-  height: 23%;
-  background-color: white;
-  border: 3px solid gray;
-  border-radius: 12px;
-  box-shadow: 0px 0px 8px 1px black;
-  top: 50%;
-  right: 50%;
-  transform: translateY(-50%) translateX(50%);
+#currentTile-previewNumber{
+    display: inline-block;
+    position: relative;
+    margin-right: 0;
+    margin-top: 0;
+    transition: left 0.2s;
 }
 
-.popupinnerbigger{
-  height: 46% !important;
-  width: 60% !important;
+#currentTile-preview{
+    width: 64px;
+    height: 64px;
+    border: 1px solid black;
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    transition: left 0.2s;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.popupinnerbiggest{
-  height: 60% !important;
-  width: 75% !important;
+#pallet #currentTile-controller{
+    display: none;
+    position: relative;
 }
 
-.cross{
-  color: red !important;
-  text-align: right;
-  padding-right: 10px;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.0);;
-}
-
-.cross:hover{
-  cursor: pointer;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
-}
-
-.buttons{
-  position: fixed;
-  z-index: 4;
-  width: 100px;
-  height: 30px;
-  border: 2px solid black;
-  box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.0);
-  box-sizing: border-box;
-  transition: 0.2s;
-  background-color: white;
-  left: 5px;
-}
-
-.buttons:hover{
-  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 1);
-  cursor: pointer;
-}
-
-.noGrid{
-  border: 0px solid rgba(255, 0, 0, 0.0) !important;
-}
-
-#helpbutton{
-  top: 5px;
-}
-
-#fillbutton{
-  top: 45px;
-}
-
-#generatebutton{
-  top: 85px;
-  height: 55px !important;
-  text-align: center;
-  vertical-align: middle;
-}
-
-#backgroundbutton{
-  top: 145px;
-  height: 55px !important;
-}
-
-#gridbutton{
-  top: 205px;
-  height: 55px !important;
-}
-
-#loadbutton{
-  top: 300px;
-  height: 55px !important;
-  border: 2px solid green;
-}
-
-#loadbutton:hover{
-  box-shadow: 0px 0px 2px 2px green;
-  cursor: pointer;
-}
-
-#zoombutton{
-  top: 360px;
-}
-
-#openPallet{
-  background-color: white;
-  position: fixed;
-  height: 200px;
-  width: 300px;
-  bottom: 0;
-  left: 0;
-  border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-top-right-radius: 10px;
+#pallet:hover #currentTile-controller{
+    display: block;
 }
