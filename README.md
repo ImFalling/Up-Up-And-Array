@@ -26,9 +26,11 @@ Where x is your file extension of choice.
 
 Afterwards, just open index.html with your favorite browser (Tested on Chrome & FF),
 and get started. 
+
 Create a new Map by clicking "Tools", and then "New". Enter your chosen file extension, and the tilegrid's dimension.
 After that, you'll find your pallet in the bottom left corner of the screen.
-After you're finished with your masterpiece, simply click "Generate", in order to have the program spit out a C# syntaxed 2D Array.
+
+When you're finished with your masterpiece, simply click "Generate", in order to have the program spit out a C# syntaxed 2D Array.
 
 **Thanks for using Up, Up and Array!**
 
