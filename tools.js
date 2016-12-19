@@ -137,7 +137,6 @@ function GenerateArray(){
 function ParseArray(toParse){
     toParse = toParse.replace(/{/g, "");
     toParse = toParse.replace(/}/g, "");
-    toParse = toParse.replace(/,/g, "");
     toParse = toParse.replace(/ /g, "");
     toParse = toParse.replace(/;/g, "");
     var StringArrays = toParse.split("\n");
@@ -147,12 +146,18 @@ function ParseArray(toParse){
     if(!(StringArrays.length == ArrayIndex.length || StringArrays[0].length == ArrayIndex[0].length)){
         alert("- Warning, loaded array has different dimensions than current TileGrid - \n Expected Dimensions: " + ArrayIndex[0].length + " × " + ArrayIndex.length + ", got " + StringArrays[0].length + " × " + StringArrays.length);
     }
+
     else{
+        console.log(StringArrays);
         for(var i = 0; i < StringArrays.length; i++){
-            for(var j = 0; j < StringArrays[i].length; j++){
-                ArrayIndex[i][j].setValue(Number.parseInt(StringArrays[i][j]));
-                ClosePopups();
+            var currentRow = StringArrays[i].split(",");
+            currentRow = currentRow.split(" ").join();;
+            console.log(currentRow);   
+            for(var j = 0; j < currentRow.length; j++){
+                console.log(i + " " + j);
+                ArrayIndex[i][j].setValue(currentRow[j]);
             }
         }
+        ClosePopups();
     }
 }
