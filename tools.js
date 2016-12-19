@@ -150,12 +150,13 @@ function ParseArray(toParse){
         }
         StringArrays[i] = currentRow;
     }
+
     StringArrays.splice([StringArrays.length-1], 1);
     console.log(StringArrays);
-    //At this point, the "array"" is in the raw state, separated by commas. 
+    //At this point, the "array" is in the raw state, separated by commas. 
     
     if(!(StringArrays.length == ArrayIndex.length || StringArrays[0].length == ArrayIndex[0].length)){
-        alert("- Warning, loaded array has different dimensions than current TileGrid - \n Expected Dimensions: " + ArrayIndex[0].length + " × " + ArrayIndex.length + ", got " + StringArrays[0].length + " × " + StringArrays.length);
+        alert("- Warning, loaded array has different dimensions than current TileGrid - \n Expected Dimensions: " + ArrayIndex[0].length + " × " + ArrayIndex.length + ", got " + StringArrays[0].split(",").length + " × " + StringArrays.length);
     }
 
     else{
