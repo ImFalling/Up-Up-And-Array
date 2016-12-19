@@ -137,21 +137,32 @@ function GenerateArray(){
 function ParseArray(toParse){
     toParse = toParse.replace(/{/g, "");
     toParse = toParse.replace(/}/g, "");
-    toParse = toParse.replace(/,/g, "");
     toParse = toParse.replace(/ /g, "");
     toParse = toParse.replace(/;/g, "");
     var StringArrays = toParse.split("\n");
     StringArrays.splice(0, 1);
-    StringArrays.splice(StringArrays.length-1, 1);
 
+    for(var i = 0; i < StringArrays.length; i++){
+        var currentRow = StringArrays[i];
+        if(currentRow[currentRow.length-1] == ','){
+            console.log("Slicing");
+            currentRow = currentRow.slice(0, currentRow.length-1);
+        }
+        StringArrays[i] = currentRow;
+    }
+    StringArrays.splice([StringArrays.length-1], 1);
+    console.log(StringArrays);
+    //At this point, the "array"" is in the raw state, separated by commas. 
+    
     if(!(StringArrays.length == ArrayIndex.length || StringArrays[0].length == ArrayIndex[0].length)){
         alert("- Warning, loaded array has different dimensions than current TileGrid - \n Expected Dimensions: " + ArrayIndex[0].length + " × " + ArrayIndex.length + ", got " + StringArrays[0].length + " × " + StringArrays.length);
     }
+
     else{
-        for(var i = 0; i < StringArrays.length; i++){
-            for(var j = 0; j < StringArrays[i].length; j++){
-                ArrayIndex[i][j].setValue(Number.parseInt(StringArrays[i][j]));
-                ClosePopups();
+        for(var i = 0; i < ArrayIndex.length; i++){
+            var ArrayLayer = StringArrays[i].split(",");
+            for(var j = 0; j < ArrayLayer.length; j++){
+                ArrayIndex[i][j].setValue(Number.parseInt(ArrayLayer[j]));
             }
         }
     }
